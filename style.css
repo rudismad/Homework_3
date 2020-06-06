@@ -1,0 +1,22 @@
+.inner-cont {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 100px;
+    height: 10vh;
+    margin: 5px;
+}
+
+.box:hover {
+    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.red-box {
+    background-color: rosybrown;
+}
+
+.green-box {
+    background-color: rgb(53, 138, 53);
+}
