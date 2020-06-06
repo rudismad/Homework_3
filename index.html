@@ -11,12 +11,19 @@
 
 <body>
     <div class="container" id="myApp">
-        <input type="number" name="" id="max-count" min="0" max="100" />
+        <label for="min-count">Minimal number:</label>
+        <input type="number" name="" id="min-count" min="0" max="100" value="1" />
+        <label for="max-count">Maximal number:</label>
+        <input type="number" name="" id="max-count" min="0" max="100" value="100" />
         <input type="text" name="" id="custom-name" />
         <!-- <input type="color" id="box-color" name="box-color" value="#e66465" /> -->
-        <button class="btn-add" id="btn-id-add">Add Element</button>
+        <!-- <button class="btn-add" id="btn-id-add">Add Element</button> -->
+        <button class="btn-fiz" id="btn-id-fiz">Fizz</button>
+        <button class="btn-buz" id="btn-id-buz">Buzz</button>
+        <button class="btn-fiz-buz" id="btn-id-fiz-buz">FizzBuzz</button>
         <button class="btn-add-many" id="btn-id-add-many">Add Many</button>
         <button class="btn-clear" id="btn-id-clear">Clear All</button>
+        <button class="btn-default" id="btn-id-default">Default</button>
         <div class="inner-cont" id="id-inner-cont"></div>
     </div>
 

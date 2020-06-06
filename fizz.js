@@ -70,8 +70,8 @@ function onMaxChange() {
 
 function addEventHandlers() {
     console.log("adding Handlers");
-    const addBtn = document.getElementById("btn-id-add");
-    addBtn.onclick = onAddElement;
+    // const addBtn = document.getElementById("btn-id-add");
+    // addBtn.onclick = onAddElement;
     const addManyBtn = document.getElementById("btn-id-add-many");
     addManyBtn.onclick = addManyElements;
     //we do not even need to save the buttons
