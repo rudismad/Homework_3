@@ -1,7 +1,7 @@
 function main() {
     //Add Listeners to each button
     const innerCont = document.getElementById("id-inner-cont");
-    const minCountEl = document.getElementById("min-count");
+    // const minCountEl = document.getElementById("min-count");
     const maxCountEl = document.getElementById("max-count");
 
     let minCount = 1; //we use to cache minCountEl.value
@@ -55,11 +55,48 @@ function main() {
             const classList = ["box"];
             console.log(`Adding index ${i} id ${id} with `);
             if (i % 3 === 0 && i % 5 === 0) {
-                classList.push("green-box");
+                classList.push("blue-box");
                 addElement(innerCont, "div", id, classList, "FIZZ-BUZZ=" + lastBoxId);
             }
         }
     }
+
+    function addDefaultElements() {
+        console.log("Adding Default Elements");
+        for (let i = 1; i >= minCount && i <= maxCount; i++) {
+            lastBoxId++; //global variable
+            const id = "b-id-" + lastBoxId;
+            const classList = ["box"];
+            console.log(`Adding index ${i} id ${id} with `);
+            if (i % 3 === 0 && i % 5 === 0) {
+                classList.push("blue-box");
+                addElement(innerCont, "div", id, classList, "FIZZ-BUZZ=" + lastBoxId);
+            } else if (i % 5 === 0) {
+                classList.push("green-box");
+                addElement(innerCont, "div", id, classList, "BUZZ=" + lastBoxId);
+            } else if (i % 3 === 0) {
+                classList.push("red-box");
+                addElement(innerCont, "div", id, classList, "FIZZ=" + lastBoxId);
+            }
+            if (i % 3 !== 0 && i % 5 !== 0) {
+                classList.push("gray-box");
+                addElement(innerCont, "div", id, classList, lastBoxId);
+            }
+        }
+
+    }
+
+    function onMaxChange() {
+        // console.log("New value might be", maxCountEl.value);
+        //IMPORTANT need to convert to Number instead of String
+        const maxvalue = parseInt(maxCountEl.value);
+        //sanity check
+        if (maxvalue > MAX || maxvalue < MIN) return;
+        maxCount = maxvalue;
+        console.log("Actually maxcount is", maxCount);
+        console.log(maxCount, typeof maxCount);
+    }
+
 
     function deleteElements() {
         console.log("Clearing Elements");
@@ -78,7 +115,8 @@ function main() {
         const addFizBuzBtn = document.getElementById("btn-id-add-fiz-buz");
         addFizBuzBtn.onclick = addFizBuzElements;
         const addDefaultBtn = document.getElementById("btn-id-add-default");
-        addDefaultBtn.onclick = addFizBuzElements;
+        addDefaultBtn.onclick = addDefaultElements;
+        maxCountEl.onchange = onMaxChange; //this happens when value is finalize
         const clearBtn = document.getElementById("btn-id-clear");
         clearBtn.onclick = deleteElements;
     }
