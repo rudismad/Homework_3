@@ -7,8 +7,31 @@ function main() {
     let minCount = 1; //we use to cache minCountEl.value
     let maxCount = 100; //we use to cache maxCountEl.value
 
+    let lastBoxId = 0;
+    const MAX = 100;
+    const MIN = 0;
+
+    function addElement(parent, tag, id, classList, content) {
+        const newEl = document.createElement(tag);
+        if (id !== null) newEl.id = id;
+        newEl.classList.add(...classList);
+        newEl.innerText = content;
+        parent.appendChild(newEl);
+    }
+
     function addFizElements() {
         console.log("Adding Fizz Elements");
+        for (let i = 1; i >= minCount && i <= maxCount; i++) {
+            lastBoxId++; //global variable
+            const id = "b-id-" + lastBoxId;
+            const classList = ["box"];
+            //backticks https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+            console.log(`Adding index ${i} id ${id} with `);
+            if (i % 3 === 0) {
+                classList.push("red-box");
+                addElement(innerCont, "div", id, classList, "FIZZ=" + lastBoxId);
+            }
+        }
     }
 
     function addBuzElements() {
@@ -21,6 +44,10 @@ function main() {
 
     function deleteElements() {
         console.log("Clearing Elements");
+        lastBoxId = 0;
+        while (innerCont.firstChild) {
+            innerCont.removeChild(innerCont.firstChild);
+        }
     }
 
     function addEventHandlers() {
