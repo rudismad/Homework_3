@@ -3,6 +3,7 @@ const innerCont = document.getElementById("id-inner-cont");
 const maxCountEl = document.getElementById("max-count");
 let maxCount = 100; //we use to cache maxCountEl.value
 const greetEl = document.getElementById("custom-name");
+// const greetEl = "FIZZ=";
 const colorPickerEl = document.getElementById("box-color");
 
 let lastBoxId = 0;
@@ -37,20 +38,12 @@ function addManyElements() {
         const classList = ["box"];
         //backticks https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
         console.log(`Adding index ${i} id ${id} with `);
-        // console.log(classList);
-        // addElement(innerCont, "div", id, classList, "Kaste " + lastBoxId);
         if (i % 3 === 0) {
             classList.push("red-box");
-            addElement(innerCont, "div", id, classList, greetEl.value + lastBoxId);
-
+            addElement(innerCont, "div", id, classList, "FIZZ=" + lastBoxId);
         }
-        // else {
-        // classList.push("green-box");
-
     }
-    // addElement(innerCont, "div", id, classList, greetEl.value + lastBoxId);
 }
-// }
 
 function deleteElements() {
     console.log("Clearing Elements");
@@ -76,7 +69,7 @@ function addEventHandlers() {
     console.log("adding Handlers");
     // const addBtn = document.getElementById("btn-id-add");
     // addBtn.onclick = onAddElement;
-    const addManyBtn = document.getElementById("btn-id-add-many");
+    const addManyBtn = document.getElementById("btn-id-add-fiz");
     addManyBtn.onclick = addManyElements;
     //we do not even need to save the buttons
     document.getElementById("btn-id-clear").onclick = deleteElements;
