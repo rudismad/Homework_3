@@ -25,7 +25,6 @@ function main() {
             lastBoxId++; //global variable
             const id = "b-id-" + lastBoxId;
             const classList = ["box"];
-            //backticks https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
             console.log(`Adding index ${i} id ${id} with `);
             if (i % 3 === 0) {
                 classList.push("red-box");
@@ -36,10 +35,30 @@ function main() {
 
     function addBuzElements() {
         console.log("Adding Buzz Elements");
+        for (let i = 1; i >= minCount && i <= maxCount; i++) {
+            lastBoxId++; //global variable
+            const id = "b-id-" + lastBoxId;
+            const classList = ["box"];
+            console.log(`Adding index ${i} id ${id} with `);
+            if (i % 5 === 0) {
+                classList.push("green-box");
+                addElement(innerCont, "div", id, classList, "BUZZ=" + lastBoxId);
+            }
+        }
     }
 
     function addFizBuzElements() {
         console.log("Adding Default Elements");
+        for (let i = 1; i >= minCount && i <= maxCount; i++) {
+            lastBoxId++; //global variable
+            const id = "b-id-" + lastBoxId;
+            const classList = ["box"];
+            console.log(`Adding index ${i} id ${id} with `);
+            if (i % 3 === 0 && i % 5 === 0) {
+                classList.push("green-box");
+                addElement(innerCont, "div", id, classList, "FIZZ-BUZZ=" + lastBoxId);
+            }
+        }
     }
 
     function deleteElements() {
@@ -62,8 +81,6 @@ function main() {
         addDefaultBtn.onclick = addFizBuzElements;
         const clearBtn = document.getElementById("btn-id-clear");
         clearBtn.onclick = deleteElements;
-        //add event handlers here
-        //you will need to find the elements
     }
 
     addEventHandlers();

@@ -21,6 +21,10 @@
     background-color: rgb(53, 138, 53);
 }
 
+.blue-box {
+    background-color: rgb(53, 83, 138);
+}
+
 /* Hid spin box from min max inputs https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
