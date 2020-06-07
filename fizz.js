@@ -1,7 +1,7 @@
 //globals
 const innerCont = document.getElementById("id-inner-cont");
 const maxCountEl = document.getElementById("max-count");
-let maxCount = 20; //we use to cache maxCountEl.value
+let maxCount = 100; //we use to cache maxCountEl.value
 const greetEl = document.getElementById("custom-name");
 const colorPickerEl = document.getElementById("box-color");
 
@@ -31,22 +31,26 @@ function addElement(parent, tag, id, classList, content) {
 function addManyElements() {
     console.log("Adding Many Elements");
     //TODO get rid of magic 10
-    for (let i = 0; i < maxCount; i++) {
+    for (let i = 1; i <= maxCount; i++) {
         lastBoxId++; //global variable
         const id = "b-id-" + lastBoxId;
         const classList = ["box"];
         //backticks https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
         console.log(`Adding index ${i} id ${id} with `);
-        if (i % 2 === 0) {
-            classList.push("red-box");
-        } else {
-            classList.push("green-box");
-        }
         // console.log(classList);
         // addElement(innerCont, "div", id, classList, "Kaste " + lastBoxId);
-        addElement(innerCont, "div", id, classList, greetEl.value + lastBoxId);
+        if (i % 3 === 0) {
+            classList.push("red-box");
+            addElement(innerCont, "div", id, classList, greetEl.value + lastBoxId);
+
+        }
+        // else {
+        // classList.push("green-box");
+
     }
+    // addElement(innerCont, "div", id, classList, greetEl.value + lastBoxId);
 }
+// }
 
 function deleteElements() {
     console.log("Clearing Elements");
