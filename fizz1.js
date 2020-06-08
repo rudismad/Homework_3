@@ -20,6 +20,8 @@ function main() {
     }
 
     function addFizElements() {
+        // Clears everyting before function addFizElements is executed
+        deleteElements();
         console.log("Adding Fizz Elements");
         for (let i = 1; i >= minCount && i <= maxCount; i++) {
             lastBoxId++; //global variable
@@ -29,11 +31,14 @@ function main() {
             if (i % 3 === 0) {
                 classList.push("red-box");
                 addElement(innerCont, "div", id, classList, "FIZZ=" + lastBoxId);
+
             }
         }
     }
 
     function addBuzElements() {
+        // Clears everyting before function addBuzElements is executed
+        deleteElements();
         console.log("Adding Buzz Elements");
         for (let i = 1; i >= minCount && i <= maxCount; i++) {
             lastBoxId++; //global variable
@@ -48,6 +53,8 @@ function main() {
     }
 
     function addFizBuzElements() {
+        // Clears everyting before function addFizzBuzzElements is executed
+        deleteElements();
         console.log("Adding Default Elements");
         for (let i = 1; i >= minCount && i <= maxCount; i++) {
             lastBoxId++; //global variable
@@ -62,6 +69,8 @@ function main() {
     }
 
     function addDefaultElements() {
+        // Clears everyting before function addDefaultElements is executed
+        deleteElements();
         console.log("Adding Default Elements");
         for (let i = 1; i >= minCount && i <= maxCount; i++) {
             lastBoxId++; //global variable
