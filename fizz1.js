@@ -1,10 +1,8 @@
 function main() {
     //Add Listeners to each button
     const innerCont = document.getElementById("id-inner-cont");
-    // const minCountEl = document.getElementById("min-count");
     const maxCountEl = document.getElementById("max-count");
-
-    let minCount = 1; //we use to cache minCountEl.value
+    let minCount = 0; //we use to cache maxCountEl.value
     let maxCount = 100; //we use to cache maxCountEl.value
 
     let lastBoxId = 0;
@@ -19,6 +17,14 @@ function main() {
         parent.appendChild(newEl);
     }
 
+    function deleteElements() {
+        console.log("Clearing Elements");
+        lastBoxId = 0;
+        while (innerCont.firstChild) {
+            innerCont.removeChild(innerCont.firstChild);
+        }
+    }
+
     function addFizElements() {
         // Clears everyting before function addFizElements is executed
         deleteElements();
@@ -29,7 +35,7 @@ function main() {
             const classList = ["box"];
             console.log(`Adding index ${i} id ${id} with `);
             if (i % 3 === 0) {
-                classList.push("red-box");
+                classList.push("fiz-box");
                 addElement(innerCont, "div", id, classList, "FIZZ=" + lastBoxId);
 
             }
@@ -46,7 +52,7 @@ function main() {
             const classList = ["box"];
             console.log(`Adding index ${i} id ${id} with `);
             if (i % 5 === 0) {
-                classList.push("green-box");
+                classList.push("buz-box");
                 addElement(innerCont, "div", id, classList, "BUZZ=" + lastBoxId);
             }
         }
@@ -62,7 +68,7 @@ function main() {
             const classList = ["box"];
             console.log(`Adding index ${i} id ${id} with `);
             if (i % 3 === 0 && i % 5 === 0) {
-                classList.push("blue-box");
+                classList.push("fiz-buz-box");
                 addElement(innerCont, "div", id, classList, "FIZZ-BUZZ=" + lastBoxId);
             }
         }
@@ -78,42 +84,35 @@ function main() {
             const classList = ["box"];
             console.log(`Adding index ${i} id ${id} with `);
             if (i % 3 === 0 && i % 5 === 0) {
-                classList.push("blue-box");
+                classList.push("fiz-buz-box");
                 addElement(innerCont, "div", id, classList, "FIZZ-BUZZ=" + lastBoxId);
             } else if (i % 5 === 0) {
-                classList.push("green-box");
+                classList.push("buz-box");
                 addElement(innerCont, "div", id, classList, "BUZZ=" + lastBoxId);
             } else if (i % 3 === 0) {
-                classList.push("red-box");
+                classList.push("fiz-box");
                 addElement(innerCont, "div", id, classList, "FIZZ=" + lastBoxId);
             }
             if (i % 3 !== 0 && i % 5 !== 0) {
-                classList.push("gray-box");
+                classList.push("none-box");
                 addElement(innerCont, "div", id, classList, lastBoxId);
             }
         }
 
     }
 
-    function onMaxChange() {
-        // console.log("New value might be", maxCountEl.value);
-        //IMPORTANT need to convert to Number instead of String
+    function onMinMaxChange() {
         const maxvalue = parseInt(maxCountEl.value);
         //sanity check
-        if (maxvalue > MAX || maxvalue < MIN) return;
-        maxCount = maxvalue;
-        console.log("Actually maxcount is", maxCount);
-        console.log(maxCount, typeof maxCount);
-    }
-
-
-    function deleteElements() {
-        console.log("Clearing Elements");
-        lastBoxId = 0;
-        while (innerCont.firstChild) {
-            innerCont.removeChild(innerCont.firstChild);
+        if ((maxvalue > MAX || maxvalue < MIN)) return;
+        else {
+            maxCount = maxvalue;
+            console.log("Actually maxcount is", maxCount);
+            console.log(maxCount, typeof maxCount);
         }
     }
+
+
 
     function addEventHandlers() {
         console.log("adding Handlers");
@@ -125,7 +124,7 @@ function main() {
         addFizBuzBtn.onclick = addFizBuzElements;
         const addDefaultBtn = document.getElementById("btn-id-add-default");
         addDefaultBtn.onclick = addDefaultElements;
-        maxCountEl.onchange = onMaxChange; //this happens when value is finalize
+        maxCountEl.onchange = onMinMaxChange;
         const clearBtn = document.getElementById("btn-id-clear");
         clearBtn.onclick = deleteElements;
     }

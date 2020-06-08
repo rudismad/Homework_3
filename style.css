@@ -1,44 +1,53 @@
+body {
+    background-color: #e7e6e6;
+}
+
+.container {
+    text-align: center;
+
+}
+
 .inner-cont {
+
     display: flex;
     flex-wrap: wrap;
+}
+
+
+.btn {
+    border-radius: 4px;
+    font-size: 1.2em;
+    margin: 5px;
+
 }
 
 .box {
     width: 100px;
     height: 10vh;
     margin: 5px;
+    border-radius: 15px;
+    display: block;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.2em;
 }
 
 .box:hover {
     box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.red-box {
-    background-color: rosybrown;
+.fiz-box {
+    background-color: rgba(230, 211, 42, 0.6);
 }
 
-.green-box {
-    background-color: rgb(53, 138, 53);
+.buz-box {
+    background-color: rgba(170, 57, 57, 0.6);
 }
 
-.blue-box {
-    background-color: rgb(53, 83, 138);
+.fiz-buz-box {
+    background-color: rgba(45, 136, 45, 0.6);
 }
 
-.gray-box {
-    background-color: rgb(156, 156, 156);
-}
-
-/* Hid spin box from min max inputs https://stackoverflow.com/questions/3790935/can-i-hide-the-html5-number-input-s-spin-box */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0;
-    /* <-- Apparently some margin are still there even though it's hidden */
-}
-
-input[type=number] {
-    -moz-appearance: textfield;
-    /* Firefox */
+.none-box {
+    background-color: #9edddd;
 }
